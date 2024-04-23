@@ -1,19 +1,35 @@
 <script lang="ts">
-	import { Accordion, AccordionItem } from '$lib/components/accordion'
+	import { writable } from 'svelte/store'
+	import {
+		SvelteFlow,
+		useSvelteFlow,
+	} from '@xyflow/svelte';
 
-	const items = [
-		{ title: 'Item 1', content: 'Content 1' },
-		{ title: 'Item 2', content: 'Content 2' },
-		{ title: 'Item 3', content: 'Content 3' },
-		{ title: 'Item 4', content: 'Content 4' }
-	]
+	import { colorpicker } from '$lib/nodes/colorpick'
+
+	import '@xyflow/svelte/dist/style.css'
+
+	const nodes = writable([
+		{
+			id: '1',
+			type: 'colorPicker',
+			data: { color: writable('#ff4000') },
+			position: { x: 0, y: 0 }
+		}
+	])
+
+	const edges = writable([])
+
+	const nodeTypes = {
+		colorPicker: colorpicker
+	}
 </script>
-
-<Accordion collapse --accordion-width="60ch">
-	{#each items as item, i}
-		<AccordionItem open={i === 0}>
-			<svelte:fragment slot="title">{item.title}</svelte:fragment>
-			<svelte:fragment slot="content">{item.content}</svelte:fragment>
-		</AccordionItem>
-	{/each}
-</Accordion>
+<div style="height:100;">
+	<SvelteFlow
+		{nodes}
+		{edges}
+		{nodeTypes}
+		fitView
+		attributionPosition="top-right"
+	/>
+</div>
