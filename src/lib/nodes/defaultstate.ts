@@ -4,12 +4,14 @@ export type FlowState = {
   color: string;
   zoom: number;
   shape: string;
+  options: string[];
 };
 
 const flowState = writable<FlowState>({
   color: '#ff4000',
   zoom: 17,
-  shape: 'cube'
+  shape: 'cube',
+  options: ['cube', 'sphere', 'cylinder']
 });
 
 export type NodeData = {

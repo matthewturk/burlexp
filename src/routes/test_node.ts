@@ -5,12 +5,14 @@ export type FlowState = {
   color: string;
   zoom: number;
   shape: string;
+  options: string[];
 };
 
 const flowState = writable<FlowState>({
   color: '#ffffff',
   zoom: 19,
-  shape: 'cube'
+  shape: 'cube',
+  options: ['cube', 'sphere', 'cylinder']
 });
 
 export const initialNodes: Node[] = [
