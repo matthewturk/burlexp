@@ -4,20 +4,27 @@
 	import type { NodeData } from '../defaultstate';
 
 	type $$Props = NodeProps;
-	$$restProps;
 	export let data: NodeData;
+	$$restProps;
 	const { label, flowState } = data;
 
-	let value = $flowState.color;
+	let value = $flowState.zoom;
 	$: {
-		$flowState.color = value;
+		$flowState.zoom = value;
 	}
+
+	const min = 0;
+	const max = 40;
 </script>
 
 <NodeWrapper {label}>
-	<div class="flex items-center space-x-2">
-		<input bind:value class="nodrag border-md w-6 h-6" type="color" />
-		<p>{value}</p>
-	</div>
 	<Handle type="source" position={Position.Right} />
+	<input
+		class="nodrag accent-[#ff4000]"
+		style="direction: rtl;"
+		type="range"
+		{min}
+		{max}
+		bind:value
+	/>
 </NodeWrapper>

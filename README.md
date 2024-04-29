@@ -11,6 +11,13 @@ npm install
 npm run dev -- --open
 ```
 
+## Supported Nodes
+- colorpicker
+- slider
+- option
+
+
+# Customize Nodes
 ## Node creation
 Create a directory within `lib/nodes` where you'll store all the necessary files. This should include the `nodeX.svelte` file, which is used to define a node.
 

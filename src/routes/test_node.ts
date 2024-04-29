@@ -1,4 +1,4 @@
-import { writable, type Writable } from 'svelte/store';
+import { writable } from 'svelte/store';
 import type { Node, Edge } from '@xyflow/svelte';
 
 export type FlowState = {
@@ -8,19 +8,39 @@ export type FlowState = {
 };
 
 const flowState = writable<FlowState>({
-  color: '#ff4000',
-  zoom: 17,
+  color: '#ffffff',
+  zoom: 19,
   shape: 'cube'
 });
 
 export const initialNodes: Node[] = [
   {
     id: '1',
-    type: 'custom',
+    type: 'colorpicker',
     position: { x: 50, y: 0 },
     data: {
       flowState,
       label: 'shape color'
+    },
+    class: 'w-[150px]'
+  },
+  {
+    id: '2',
+    type: 'slider',
+    position: { x: 40, y: 280 },
+    data: {
+      flowState,
+      label: 'zoom level'
+    },
+    class: 'w-[150px]'
+  },
+  {
+    id: '3',
+    type: 'option',
+    position: { x: 0, y: 125 },
+    data: {
+      flowState,
+      label: 'shape type'
     },
     class: 'w-[150px]'
   },

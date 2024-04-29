@@ -52,9 +52,13 @@
 
 	// node testing
 	import { colorpicker } from '$lib/nodes/colorpicker';
+	import { slider } from '$lib/nodes/slider';
+	import { option } from '$lib/nodes/option';
 
 	const nodeTypes = {
-		custom: colorpicker
+		colorpicker: colorpicker,
+		slider: slider,
+		option: option
 	};
 	import { initialNodes, initialEdges } from './test_node';
 	const nodes = writable<Node[]>(initialNodes);
