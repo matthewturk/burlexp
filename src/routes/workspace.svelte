@@ -54,11 +54,13 @@
 	import { colorpicker } from '$lib/nodes/colorpicker';
 	import { slider } from '$lib/nodes/slider';
 	import { option } from '$lib/nodes/option';
+	import {aggregate} from '$lib/nodes/aggregate';
 
 	const nodeTypes = {
 		colorpicker: colorpicker,
 		slider: slider,
-		option: option
+		option: option,
+		aggregate: aggregate
 	};
 	import { initialNodes, initialEdges } from './test_node';
 	const nodes = writable<Node[]>(initialNodes);

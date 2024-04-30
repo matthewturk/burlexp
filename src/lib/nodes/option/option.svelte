@@ -8,8 +8,6 @@
     $$restProps;
     const { label, flowState } = data;
   
-    // const options = ['cube', 'pyramid'];
-  
     let selectedShape = $flowState.shape;
     let options = $flowState.options;
     $: {

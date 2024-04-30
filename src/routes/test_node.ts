@@ -46,6 +46,16 @@ export const initialNodes: Node[] = [
     },
     class: 'w-[150px]'
   },
+  {
+    id: '4',
+    type: 'aggregate',
+    position: { x: 300, y: 125 },
+    data: {
+      flowState,
+      label: 'Aggregation'
+    },
+    class: 'w-[150px]'
+  },
 ];
 
 export const initialEdges: Edge[] = [];

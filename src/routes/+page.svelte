@@ -16,9 +16,9 @@
 	.container {
 		justify-content: center;
 		align-items: center; 
-		height: 90vh;
+		height: 100%;
 		margin-left: auto; 
 		margin-right: auto;
-		max-width: 1600px;
+		max-width: 100%;
 	}
 </style>
