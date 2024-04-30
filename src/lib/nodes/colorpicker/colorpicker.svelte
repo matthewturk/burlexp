@@ -1,17 +1,17 @@
 <script lang="ts">
-	import { Handle, Position, type NodeProps } from '@xyflow/svelte';
+	import { Handle, Position, type NodeProps, useSvelteFlow } from '@xyflow/svelte';
 	import NodeWrapper from '../nodewrapper.svelte';
-	import type { NodeData } from '../defaultstate';
 
+	const { updateNodeData } = useSvelteFlow();
 	type $$Props = NodeProps;
 	$$restProps;
-	export let data: NodeData;
-	const { label, flowState } = data;
+	export let id: $$Props['id'];
+	id;
+	export let data: $$Props['data'];
+	export let label: $$Props['data']['label'];
+	export let value = data['value'];
 
-	let value = $flowState.color;
-	$: {
-		$flowState.color = value;
-	}
+	$: updateNodeData(id, { value: value });
 </script>
 
 <NodeWrapper {label}>
